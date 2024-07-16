@@ -1,0 +1,52 @@
+
+
+<div class="login-container">
+
+    <!-- Login -->
+     <form *ngIf ="activeForm ==='login'" [formGroup]="loginForm"(ngSubmit)="login()">
+        <h2>Login</h2>
+        <div class="from-group">
+            <input type="email" formControlName="email" placeholder="Email" />
+        </div>
+        <div class="from-group">
+            <input type="password" formControlName="password" placeholder="Password" />
+        </div>
+        <button type="submit">Login</button>
+        <p (click)="toggleForm('register')">Don't have an account ?
+            <span class="highlighted">Register</span>
+        </p>
+        <p (click)="toggleForm('productadd')">Don't have an account ?
+            <span class="highlighted">ProductAdd</span>
+        </p>
+     </form>
+
+    <!-- Register -->
+     <form *ngIf="activeForm ==='register'" [formGroup]="registerForm"(ngSubmit)="register()" >
+        <h2>Register</h2>
+        <div class="from-group">
+            <input type="text" formControlName="username" placeholder="UserName"/>
+        </div>
+        <div class="from-group">
+            <input type="email" formControlName="email" placeholder="Email"/>
+        </div>
+        <div class="from-group">
+            <input type="password" formControlName="password" placeholder="Password"/>
+        </div>
+        <button type="submit">Register</button>
+        <p (click)="toggleForm('login')">Don't have an account ?
+            <span class="highlighted">Login</span>
+        </p>
+     </form>
+
+    <!-- ProductAdd -->
+     <form *ngIf="activeForm==='productadd'" [formGroup]="productForm"(ngSubmit)="productadd()">
+        <div>
+            <input type="text" formControlName="productname" placeholder="ProductName"/>
+        </div>
+        <div>
+            <input type="value" formControlName="productprice" placeholder="0"/>
+        </div>
+        <button type="submit">Added</button>
+     </form>
+
+</div>
